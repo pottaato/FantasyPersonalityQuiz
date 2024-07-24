@@ -1,10 +1,5 @@
 # Based on MBTI 16 personalities
 
-print("""
-      
-Evil is about to attack. The world is in danger.\nYou are chosen to lead the war against evil to save the world!
-
-""")
 
 # 1
 def gather_storm():
@@ -163,26 +158,29 @@ def determine_personality(points):
 
 def determine_role(personality):
     roles = {
-        'INTJ': "Mastermind Sorcerer",
-        'INTP': "Arcane Scholar",
-        'ENTJ': "War General",
-        'ENTP': "Charismatic Trickster",
-        'INFJ': "Visionary Seer",
-        'INFP': "Enchanted Bard",
-        'ENFJ': "Noble Paladin",
-        'ENFP': "Wandering Druid",
-        'ISTJ': "Stalwart Knight",
-        'ISFJ': "Guardian Healer",
-        'ESTJ': "City Governor",
-        'ESFJ': "Benevolent Matron/Patron",
-        'ISTP': "Skilled Ranger",
-        'ISFP': "Free-spirited Artisan",
-        'ESTP': "Daring Mercenary",
-        'ESFP': "Joyful Performer",
+        'INTJ': "Arithmancer",
+        'INTP': "Conjurer",
+        'ENTJ': "Crusader",
+        'ENTP': "Shapeshifter",
+        'INFJ': "Warlock",
+        'INFP': "Dreamweaver Bard",
+        'ENFJ': "Templar",
+        'ENFP': "Battle Mage",
+        'ISTJ': "Monk",
+        'ISFJ': "Cleric",
+        'ESTJ': "Orator",
+        'ESFJ': "Sanctifier",
+        'ISTP': "Mechanic",
+        'ISFP': "Nature's Tinker",
+        'ESTP': "Barbarian",
+        'ESFP': "Acrobat",
     }
     return roles.get(personality, "Unknown Role")
 
 def main():
+
+    print("\nEvil is about to attack. The world is in danger.\nYou are chosen to lead the war against evil to save the world!\n")
+
     points = {}
     
     chapters = [
@@ -197,17 +195,19 @@ def main():
     
     for chapter in chapters:
         chapter_points = chapter()
+        #print("ch_pt = {}".format(chapter_points))
         for trait, point in chapter_points.items():
             points[trait] = points.get(trait, 0) + point
+            #print("points[trait] = {}".format(points[trait]))
     
     personality = determine_personality(points)
     role = determine_role(personality)
     
-    print("\n\nYears gone and your victorious tale have been heard by people all over the world. The legend known as...")
+    print("\n\nYears gone by and your victorious tale spreads among people across the world. The legend known as...")
     print("The {}".format(role))
 
-    print("\n\nYour personality type is: {}".format(personality))
-    print("Your fantasy role is: {}".format(role))
+    # print("\n\nYour personality type is: {}".format(personality))
+    # print("Your fantasy role is: {}".format(role))
 
 if __name__ == "__main__":
     main()
